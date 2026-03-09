@@ -328,7 +328,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif}
 .pill{padding:6px 18px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);background:transparent;border:none;font-family:'Inter',sans-serif;transition:all .2s}
 .pill:hover{color:var(--txt)}
 .pill.on{background:#222;color:var(--txt);box-shadow:0 1px 3px rgba(0,0,0,.5)}
-.wrap{max-width:780px;margin:0 auto;padding:88px 20px 0}
+.wrap{max-width:1000px;margin:0 auto;padding:88px 20px 0}
 .card{background:var(--card);border:1px solid var(--b);border-radius:12px;padding:24px}
 .divider{height:1px;background:var(--b);margin:20px 0}
 .profile-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
