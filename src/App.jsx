@@ -17,9 +17,12 @@ const SKILL_CATS = [
     { name: "React",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
     { name: "Next.js",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
     { name: "Vue 3",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" },
-    { name: "Angular",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" },
     { name: "Redux",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg" },
     { name: "Tailwind",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+    { name: "SCSS",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" },
+    { name: "CSS",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
+    { name: "HTML",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
+    { name: "Ajax",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
   ]},
   { label: "BACKEND", items: [
     { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" },
@@ -29,6 +32,10 @@ const SKILL_CATS = [
     { name: "GraphQL",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg" },
     { name: "Kafka",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg" },
     { name: "gRPC",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grpc/grpc-original.svg" },
+    { name: "REST API",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" },
+    { name: "WCF",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" },
+    { name: "WebSockets",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
+    { name: "SignalR",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" },
   ]},
   { label: "DATABASE", items: [
     { name: "PostgreSQL",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
@@ -43,9 +50,11 @@ const SKILL_CATS = [
     { name: "Azure",           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
     { name: "Docker",          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
     { name: "Kubernetes",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" },
+    { name: "Unity",           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" },
     { name: "Jenkins",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg" },
     { name: "GitHub Actions",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" },
     { name: "Prometheus",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" },
+    { name: "AWS EKS",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
   ]},
   { label: "ML / AI", items: [
     { name: "PyTorch",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" },
@@ -53,7 +62,14 @@ const SKILL_CATS = [
     { name: "OpenCV",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" },
     { name: "Scikit-learn", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" },
     { name: "OpenAI API",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/openai/openai-original.svg" },
-    { name: "LangChain",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/langchain/langchain-original.svg" },
+    { name: "HuggingFace",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/huggingface/huggingface-original.svg" },
+    { name: "OpenRouter",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/openai/openai-original.svg" },
+  ]},
+  { label: "TESTING", items: [
+    { name: "SpecFlow",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" },
+    { name: "Selenium",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg" },
+    { name: "SonarQube",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sonarqube/sonarqube-original.svg" },
+    { name: "JUnit",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/junit/junit-original.svg" },
   ]},
 ];
 
@@ -102,7 +118,12 @@ const EXP = [
     "Built an analytics framework using Google Tag Manager in ReactJS, tracking real-time product demand signals to inform inventory and business management decisions.",
     "Built RESTful APIs in .NET Core for credit card line management and contributed to microservices architecture for the insurance domain for Bangkok Bank — gaining cross-vertical experience in fintech and banking.",
   ] },
-  { type:"work", period:"Feb 2021 — July 2021", role:"Software Engineer Intern", company:"Honeywell Technology Solutions", points:["Built real-time notification system with C#/.NET and WebSockets for mobile and web clients.","Developed RESTful APIs and optimized SQL stored procedures, improving query performance by 70%."] },
+  { type:"work", period:"Feb 2021 — July 2021", role:"Software Engineer Intern", company:"Honeywell Technology Solutions", points:[
+    "Developed backend services using .NET Core for a web application, enhancing functionality and user experience.",
+    "Integrated frontend features with HTML, CSS, JavaScript, and Ajax, ensuring seamless interaction between client and server.",
+    "Created stored procedures in Microsoft SQL Server to optimize data retrieval and support backend services.",
+    "Implemented SignalR for real-time polling, facilitating bi-directional communication between the browser and server.",
+  ] },
 ];
 
 const SHREYA_CONTEXT = `You are an AI assistant on Shreya Prakash's portfolio website. Answer questions about Shreya concisely and helpfully. Only answer questions about Shreya — if asked anything unrelated, politely redirect.
@@ -219,6 +240,7 @@ export default function App() {
                   <div className="profile-name-row">
                     <span className="profile-name">Shreya Prakash</span>
                     <span className="badge-green">Open to Work</span>
+                    <span className="badge-blue">Open to Relocation</span>
                   </div>
                   <div className="profile-role">Software Engineer &amp; CS Grad Student @ ASU</div>
                   <a href="mailto:shreya2199@gmail.com" className="profile-email">
@@ -495,6 +517,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif}
 .profile-name-row{display:flex;align-items:center;gap:10px;margin-bottom:4px}
 .profile-name{font-size:18px;font-weight:600;color:var(--txt)}
 .badge-green{font-size:11px;padding:2px 10px;border-radius:20px;background:rgba(61,214,140,0.12);color:var(--teal);border:1px solid rgba(61,214,140,0.25);font-family:'JetBrains Mono',monospace;letter-spacing:.3px}
+.badge-blue{font-size:11px;padding:2px 10px;border-radius:20px;background:rgba(99,102,241,0.12);color:#818cf8;border:1px solid rgba(99,102,241,0.25);font-family:'JetBrains Mono',monospace;letter-spacing:.3px}
 .profile-role{font-size:13px;color:var(--muted);margin-bottom:8px}
 .profile-email{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--dim);text-decoration:none;padding:4px 10px;border:1px solid var(--b2);border-radius:6px;background:#161616;transition:all .2s;font-family:'JetBrains Mono',monospace}
 .profile-email:hover{color:var(--txt);border-color:#444}
