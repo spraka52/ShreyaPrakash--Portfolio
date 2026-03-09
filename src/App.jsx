@@ -43,7 +43,6 @@ const SKILL_CATS = [
     { name: "Azure",           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
     { name: "Docker",          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
     { name: "Kubernetes",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" },
-    { name: "Terraform",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" },
     { name: "Jenkins",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg" },
     { name: "GitHub Actions",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" },
     { name: "Prometheus",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" },
@@ -82,7 +81,7 @@ const EXP = [
     "Established a disaster recovery environment for a critical WPF application, designing failover and continuity procedures that ensured zero data loss and business continuity.",
     "Enhanced backend responsiveness by 40% by integrating Azure Functions into the platform architecture, offloading compute-intensive operations to serverless execution.",
     "Volunteered as front-end lead for a CSR initiative — built a student management web app for an NGO using Next.js, ReactJS, and Java Spring Boot, delivering a production-ready platform that improved administrative efficiency for educators.",
-    "Owned L2 on-call support for 3 production applications, triaging and resolving complex runtime issues before customer impact; deployed via Jenkins/Terraform CI/CD with 100% SonarQube code coverage.",
+    "Owned L2 on-call support for 3 production applications, triaging and resolving complex runtime issues before customer impact; deployed via Jenkins CI/CD with 100% SonarQube code coverage.",
   ] },
   { type:"work", period:"July 2021 — Dec 2022", role:"Associate Software Development Engineer 1", company:"Publicis Sapient", points:[
     "Built a cloud-native pricing solution platform from scratch using Azure Functions and Azure MySQL, integrating configurable data sources and user management for real-time risk analysis — sole developer on the frontend, built independently by reading Azure AD documentation.",
