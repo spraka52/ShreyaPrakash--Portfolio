@@ -59,7 +59,7 @@ const SKILL_CATS = [
 ];
 
 const PROJECTS = [
-  { name:"SafePrompt", desc:"Fine-tuned DistilBERT for multi-label text classification — toxicity, threats, hate speech. Real-time risk scoring with FastAPI backend and Next.js frontend.", stack:["DistilBERT","PyTorch","FastAPI","Next.js","HuggingFace"], github:"https://github.com/spraka52/safe-prompt", color:"#1a1a2e", accent:"#7c3aed" },
+  { name:"SafePrompt", desc:"Fine-tuned DistilBERT for multi-label text classification — toxicity, threats, hate speech. Real-time risk scoring with FastAPI backend and Next.js frontend.", stack:["DistilBERT","PyTorch","FastAPI","Next.js","HuggingFace"], github:"https://github.com/spraka52/safeprompt-guardrail", color:"#1a1a2e", accent:"#7c3aed" },
   { name:"Elastic Cloud Platform", desc:"Auto-scaling face recognition pipeline on AWS handling 1000+ concurrent users. MTCNN edge detection + FaceNet on Lambda, 40% cost reduction with queue-depth autoscaling.", stack:["AWS Lambda","S3","SQS","MTCNN","FaceNet"], color:"#0d1f2d", accent:"#0ea5e9" },
   { name:"Portfolio Risk Analyzer", desc:"Full-stack investment tool with JWT auth, 8+ REST endpoints, real-time stock data via Finnhub API, and Spring Security RBAC. Deployed on Vercel + Railway.", stack:["Next.js","Spring Boot","PostgreSQL","Finnhub API","Docker"], live:"https://portfolio-risk-analyzer-seven.vercel.app/", color:"#1a2e1a", accent:"#22c55e" },
   { name:"Waste Segregation", desc:"1st Place — CellStart AI Hackathon. Trained Faster R-CNN on TensorFlow to classify organic, inorganic, and plastic waste. 97% confidence, outperformed 30+ teams.", stack:["TensorFlow","Faster R-CNN","Python","OpenCV","Transfer Learning"], github:"https://github.com/spraka52/object_detection", color:"#2d1a0d", accent:"#f97316", badge:"🏆 1st Place" },
@@ -335,7 +335,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif}
 .pill{padding:6px 18px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);background:transparent;border:none;font-family:'Inter',sans-serif;transition:all .2s}
 .pill:hover{color:var(--txt)}
 .pill.on{background:#222;color:var(--txt);box-shadow:0 1px 3px rgba(0,0,0,.5)}
-.wrap{max-width:2000px;margin:0 auto;padding:88px 20px 0}
+.wrap{max-width:1000px;margin:0 auto;padding:88px 20px 0}
 .card{background:var(--card);border:1px solid var(--b);border-radius:12px;padding:24px}
 .divider{height:1px;background:var(--b);margin:20px 0}
 .profile-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
