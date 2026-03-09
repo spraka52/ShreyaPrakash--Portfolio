@@ -63,7 +63,7 @@ const PROJECTS = [
   { name:"Portfolio Risk Analyzer", desc:"Full-stack investment tool with JWT auth, 8+ REST endpoints, real-time stock data via Finnhub API, and Spring Security RBAC. Deployed on Vercel + Railway.", stack:["Next.js","Spring Boot","PostgreSQL","Finnhub API","Docker"], live:"https://portfolio-risk-analyzer-seven.vercel.app/", color:"#1a2e1a", accent:"#22c55e" },
   { name:"Waste Segregation", desc:"1st Place — CellStart AI Hackathon. Trained Faster R-CNN on TensorFlow to classify organic, inorganic, and plastic waste. 97% confidence, outperformed 30+ teams.", stack:["TensorFlow","Faster R-CNN","Python","OpenCV","Transfer Learning"], github:"https://github.com/spraka52/object_detection", color:"#2d1a0d", accent:"#f97316", badge:"🏆 1st Place" },
   { name:"VR Training Data Generator", desc:"Unity/C# application generating realistic VR training telemetry using probabilistic models for the U.S. Army GIFT system. Simulates multiple trainees from a single headset.", stack:["Unity","C#","Kafka","Probabilistic Models","GIFT"], github:"https://github.com/spraka52/SteelArtt-VR-Mock-data-generator", color:"#1a1a1a", accent:"#a855f7" },
-  { name:"Metrics Orchestrator", desc:"Led 24 engineers to build a distributed metrics platform orchestrating 24 microservices with parallel execution, MongoDB, and RESTful APIs.", stack:["Java","Spring Boot","MongoDB","REST","Microservices"], github:"https://github.com/spraka52/metrics-orchestrator", color:"#1a1f2e", accent:"#3b82f6" },
+  { name:"Metrics Orchestrator", desc:"Designed and implemented a scalable backend computing 24 software engineering metrics across GitHub repositories. Built centralized aggregation architecture that downloads/caches repo snapshots, extracts 90 days of commit history, and runs automated cron-based daily updates with MongoDB time-series storage. Created flexible history APIs for date-range metric queries.", stack:["Java","Spring Boot","MongoDB","Docker","GitHub API","Cron Jobs"], github:"https://github.com/spraka52/metrics-orchestrator", color:"#1a1f2e", accent:"#3b82f6" },
   { name:"Mindful Journal", desc:"AI-powered journaling platform integrating OpenAI and Ollama LLMs for personalized mental health insights, with prompt engineering pipelines and PostgreSQL storage.", stack:["React","Node.js","OpenAI API","Ollama","PostgreSQL"], github:"https://github.com/spraka52/mental-journal", color:"#2e1a1a", accent:"#ef4444" },
 ];
 
@@ -72,8 +72,17 @@ const BLOGS = [
 ];
 
 const EXP = [
-  { type:"edu", period:"Aug 2024 — May 2026", role:"M.S. Computer Software Engineering", company:"Arizona State University · GPA 4.11 / 4.0", points:["Specializing in distributed systems, cloud computing, and machine learning.","Research: BoneAtlas healthcare AI platform for forensic medical imaging diagnostics.","IEEE Publication: Face Detection and Gaze-based Morse Code Authentication (2021)."] },
-  { type:"work", period:"May 2025 — Present", role:"Software Engineer (Research)", company:"Arizona State University", points:["Building BoneAtlas — distributed web platform with 3D visualization and ML-based bone diagnostics (GraphQL, MongoDB).","Built Unity/C# VR data generation system for the U.S. Army GIFT platform using Kafka for real-time telemetry streaming.","Reduced data processing latency by 40% through real-time event streaming architecture."] },
+  { type:"work", period:"May 2025 — Present", role:"Software Engineer (Research)", company:"Arizona State University", points:[
+    "BoneAtlas — Healthcare AI Platform: Debugged and resolved MongoDB authentication failures in Dockerized environments by inspecting container runtime configs and securing root credential setup.",
+    "Migrated MongoDB dumps across remote servers using secure transfer (scp) and restored containerized databases without data loss.",
+    "Diagnosed and fixed environment variable misconfigurations inside Docker containers, stabilizing deployment pipelines.",
+    "Resolved Vite + Vue frontend startup failures by auditing package.json scripts and build configurations; integrated Dockerized backend, MongoDB, and Vite frontend into a stable full-stack development environment.",
+    "Resolved JVM JMX monitoring failures in Docker by configuring fixed RMI ports and proper host binding, restoring external metrics collection and system observability.",
+    "GIFT (U.S. Army) — Secure Distributed Training System: Designed secure integration pathways associating external Unity VR session identifiers with internal GIFT training sessions, preventing data leakage across multi-user environments.",
+    "Implemented controlled caching mechanisms with explicit lifecycle management — session identifiers stored only when needed and cleared after use — eliminating stale or cross-session data contamination.",
+    "Decoupled security-sensitive configuration (service endpoints, identifiers) from application logic, enabling safer deployment across environments without hard-coded URLs.",
+    "Enforced least-privilege data sharing when integrating with a MongoDB-backed analytics service — transmitting only required identifiers and deriving performance assessments internally rather than exposing raw training data.",
+  ] },
   { type:"work", period:"Dec 2022 — Aug 2024", role:"Associate Software Development Engineer 2", company:"Publicis Sapient · Promoted", points:[
     "Streamlined middle-office and back-office workflows for Point72 (hedge fund) by building high-performance WPF desktop applications and WCF/gRPC services for real-time inter-system communication between trading and back-office platforms.",
     "Optimized a critical SQL Server bulk import stored procedure, reducing runtime from 180 minutes to 2 minutes — an 88%+ improvement that unblocked daily financial reporting workflows.",
@@ -111,7 +120,7 @@ SKILLS: Java, Python, C#, Go, TypeScript, JavaScript, SQL | React, Next.js, Vue 
 
 PROJECTS: SafePrompt (DistilBERT toxicity classifier), Elastic Cloud Platform (AWS face recognition, 1000+ users), Portfolio Risk Analyzer (Spring Boot + Next.js, live), Waste Segregation (1st Place hackathon, 97% accuracy), VR Training Data Generator (U.S. Army GIFT), Metrics Orchestrator (24 engineers, 24 microservices), Mindful Journal (OpenAI + Ollama LLMs)
 
-ACHIEVEMENTS: 1st Place CellStart AI Hackathon, 1st Place Phaseshift ML Hackathon (National, India), IEEE Publication FDMCA (2021)
+ACHIEVEMENTS: 1st Place CellStart AI Hackathon, 1st Place Phaseshift ML Hackathon (National, India), IEEE Publication: FDMCA - Face Detection and Gaze-based Morse Code Authentication (PuneCon 2021), IEEE Publication: Blind Assist - Mobile App for the Visually Impaired using OCR + TensorFlow Lite (PuneCon 2021)
 
 Keep answers brief (2-4 sentences). Be friendly and professional.`;
 
@@ -228,6 +237,14 @@ export default function App() {
               </div>
             </div>
             <div className="divider" />
+            <div style={{display:"flex",alignItems:"flex-start",gap:12,marginBottom:16}}>
+              <div style={{fontSize:20,lineHeight:1,flexShrink:0}}>🎓</div>
+              <div>
+                <div style={{fontSize:14,fontWeight:600,color:"var(--txt)",marginBottom:2}}>M.S. Computer Software Engineering</div>
+                <div style={{fontSize:13,color:"var(--teal)",marginBottom:4}}>Arizona State University · GPA 4.11 / 4.0 · May 2026</div>
+                <div style={{fontSize:13,color:"var(--muted)"}}>Specializing in distributed systems, cloud computing, and machine learning.</div>
+              </div>
+            </div>
             <div className="bio">
               <p>Hi, I am <strong>Shreya Prakash</strong>, a software engineer and CS grad student at <strong>Arizona State University</strong>, graduating May 2026.</p>
               <p style={{marginTop:10}}>I build backend systems, cloud infrastructure, and ML-powered products with 4+ years of industry experience at <strong>Publicis Sapient</strong> and <strong>Honeywell</strong>. Currently doing research at ASU building BoneAtlas — a healthcare AI platform for forensic medical imaging.</p>
@@ -351,9 +368,22 @@ export default function App() {
                 <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,color:"var(--dim)",marginBottom:6}}>IEEE PUBLICATION · 2021</div>
                 <div style={{fontSize:15,fontWeight:600,color:"var(--txt)",marginBottom:6}}>FDMCA: Face Detection and Gaze-based Morse Code Authentication</div>
                 <div style={{fontSize:13,color:"var(--muted)",lineHeight:1.65,marginBottom:12}}>Developed a two-step authentication system using real-time face recognition and gaze-based Morse code input — providing security against shoulder surfing, thermal tracking, and keylogger attacks.</div>
-                <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+                <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:10}}>
                   <span className="tag">Face Detection</span><span className="tag">Gaze Tracking</span><span className="tag">Authentication</span><span className="tag blue">IEEE</span>
                 </div>
+                <a href="https://ieeexplore.ieee.org/document/9641520/" target="_blank" rel="noreferrer" className="proj-link">View on IEEE →</a>
+              </div>
+            </div>
+            <div className="card" style={{display:"flex",alignItems:"flex-start",gap:20}}>
+              <div style={{fontSize:28,lineHeight:1,flexShrink:0}}>📄</div>
+              <div style={{flex:1}}>
+                <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,color:"var(--dim)",marginBottom:6}}>IEEE PUBLICATION · 2021 · PuneCon</div>
+                <div style={{fontSize:15,fontWeight:600,color:"var(--txt)",marginBottom:6}}>Blind Assist: A One Stop Mobile Application for the Visually Impaired</div>
+                <div style={{fontSize:13,color:"var(--muted)",lineHeight:1.65,marginBottom:12}}>Designed and built an Android accessibility app for visually impaired and elderly users featuring OCR text scanning, voice-based email, currency denomination detection (82–90% accuracy via TensorFlow Lite + MobileNet), SMS reader, and a voice-dictated diary — all operable without sight.</div>
+                <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:10}}>
+                  <span className="tag">Android</span><span className="tag">TensorFlow Lite</span><span className="tag">OCR</span><span className="tag">MobileNet</span><span className="tag blue">IEEE</span>
+                </div>
+                <a href="https://ieeexplore.ieee.org/document/9686476" target="_blank" rel="noreferrer" className="proj-link">View on IEEE →</a>
               </div>
             </div>
             <div className="card" style={{display:"flex",alignItems:"flex-start",gap:20}}>
