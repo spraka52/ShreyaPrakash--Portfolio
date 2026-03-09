@@ -171,12 +171,19 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      es => es.forEach(e => { if(e.isIntersecting) setActive(e.target.id); }),
-      { threshold: 0.2, rootMargin: "-60px 0px -40% 0px" }
-    );
-    TABS.forEach(id => { const el = document.getElementById(id); if(el) obs.observe(el); });
-    return () => obs.disconnect();
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const obs = new IntersectionObserver(
+        es => es.forEach(e => { if(e.isIntersecting) setActive(e.target.id); }),
+        { threshold: 0.2, rootMargin: "-60px 0px -40% 0px" }
+      );
+      TABS.forEach(id => { const el = document.getElementById(id); if(el) obs.observe(el); });
+      return () => obs.disconnect();
+    }, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   const go = id => document.getElementById(id)?.scrollIntoView({ behavior:"smooth" });
