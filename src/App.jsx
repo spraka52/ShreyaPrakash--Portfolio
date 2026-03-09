@@ -59,13 +59,13 @@ const SKILL_CATS = [
 ];
 
 const PROJECTS = [
-  { num:"01", name:"SafePrompt", feat:true, desc:"Fine-tuned DistilBERT for multi-label text classification (toxicity, threats, hate speech) using PyTorch. Real-time risk scoring with FastAPI backend and Next.js frontend.", stack:["DistilBERT","PyTorch","FastAPI","Next.js","HuggingFace"], github:"https://github.com/spraka52/safe-prompt" },
-  { num:"02", name:"Elastic Cloud Platform", blue:true, desc:"Auto-scaling face recognition pipeline on AWS handling 1000+ concurrent users. MTCNN edge detection + FaceNet on Lambda, 40% cost reduction with queue-depth autoscaling.", stack:["AWS Lambda","S3","SQS","MTCNN","FaceNet"] },
-  { num:"03", name:"Portfolio Risk Analyzer", desc:"Full-stack investment tool with JWT auth, 8+ REST endpoints, real-time stock data via Finnhub API, and Spring Security RBAC. Deployed with CI/CD on Vercel + Railway.", stack:["Next.js","Spring Boot","PostgreSQL","Finnhub API","Docker"], live:"https://portfolio-risk-analyzer-seven.vercel.app/" },
-  { num:"04", name:"Waste Segregation", feat:false, desc:"1st Place at CellStart AI Hackathon. Trained Faster R-CNN on TensorFlow to classify organic, inorganic, and plastic waste from images. 97% confidence, outperformed 30+ teams.", stack:["TensorFlow","Faster R-CNN","Python","OpenCV","Transfer Learning"], github:"https://github.com/spraka52/object_detection" },
-  { num:"05", name:"VR Training Data Generator", blue:true, desc:"Unity/C# application generating realistic VR training telemetry using probabilistic models for the U.S. Army GIFT system. Simulates multiple trainees from a single headset.", stack:["Unity","C#","Kafka","Probabilistic Models","GIFT"], github:"https://github.com/spraka52/SteelArtt-VR-Mock-data-generator" },
-  { num:"06", name:"Metrics Orchestrator", desc:"Led 24 engineers to build a distributed metrics platform orchestrating 24 microservices with parallel execution, MongoDB, and RESTful APIs.", stack:["Java","Spring Boot","MongoDB","REST","Microservices"], github:"https://github.com/spraka52/metrics-orchestrator" },
-  { num:"07", name:"Mindful Journal", desc:"AI-powered journaling platform integrating OpenAI and Ollama LLMs for personalized mental health insights, with prompt engineering pipelines and PostgreSQL storage.", stack:["React","Node.js","OpenAI API","Ollama","PostgreSQL"], github:"https://github.com/spraka52/mental-journal" },
+  { name:"SafePrompt", desc:"Fine-tuned DistilBERT for multi-label text classification — toxicity, threats, hate speech. Real-time risk scoring with FastAPI backend and Next.js frontend.", stack:["DistilBERT","PyTorch","FastAPI","Next.js","HuggingFace"], github:"https://github.com/spraka52/safe-prompt", color:"#1a1a2e", accent:"#7c3aed" },
+  { name:"Elastic Cloud Platform", desc:"Auto-scaling face recognition pipeline on AWS handling 1000+ concurrent users. MTCNN edge detection + FaceNet on Lambda, 40% cost reduction with queue-depth autoscaling.", stack:["AWS Lambda","S3","SQS","MTCNN","FaceNet"], color:"#0d1f2d", accent:"#0ea5e9" },
+  { name:"Portfolio Risk Analyzer", desc:"Full-stack investment tool with JWT auth, 8+ REST endpoints, real-time stock data via Finnhub API, and Spring Security RBAC. Deployed on Vercel + Railway.", stack:["Next.js","Spring Boot","PostgreSQL","Finnhub API","Docker"], live:"https://portfolio-risk-analyzer-seven.vercel.app/", color:"#1a2e1a", accent:"#22c55e" },
+  { name:"Waste Segregation", desc:"1st Place — CellStart AI Hackathon. Trained Faster R-CNN on TensorFlow to classify organic, inorganic, and plastic waste. 97% confidence, outperformed 30+ teams.", stack:["TensorFlow","Faster R-CNN","Python","OpenCV","Transfer Learning"], github:"https://github.com/spraka52/object_detection", color:"#2d1a0d", accent:"#f97316", badge:"🏆 1st Place" },
+  { name:"VR Training Data Generator", desc:"Unity/C# application generating realistic VR training telemetry using probabilistic models for the U.S. Army GIFT system. Simulates multiple trainees from a single headset.", stack:["Unity","C#","Kafka","Probabilistic Models","GIFT"], github:"https://github.com/spraka52/SteelArtt-VR-Mock-data-generator", color:"#1a1a1a", accent:"#a855f7" },
+  { name:"Metrics Orchestrator", desc:"Led 24 engineers to build a distributed metrics platform orchestrating 24 microservices with parallel execution, MongoDB, and RESTful APIs.", stack:["Java","Spring Boot","MongoDB","REST","Microservices"], github:"https://github.com/spraka52/metrics-orchestrator", color:"#1a1f2e", accent:"#3b82f6" },
+  { name:"Mindful Journal", desc:"AI-powered journaling platform integrating OpenAI and Ollama LLMs for personalized mental health insights, with prompt engineering pipelines and PostgreSQL storage.", stack:["React","Node.js","OpenAI API","Ollama","PostgreSQL"], github:"https://github.com/spraka52/mental-journal", color:"#2e1a1a", accent:"#ef4444" },
 ];
 
 const BLOGS = [
@@ -163,14 +163,14 @@ export default function App() {
             <div className="divider" />
             <div className="bio">
               <p>Hi, I am <strong>Shreya Prakash</strong>, a software engineer and CS grad student at <strong>Arizona State University</strong>, graduating May 2026.</p>
-              <p style={{marginTop:10}}>I build backend systems, cloud infrastructure, and ML-powered products with 3+ years of industry experience at <strong>Publicis Sapient</strong> and <strong>Honeywell</strong>. Currently doing research at ASU building BoneAtlas — a healthcare AI platform for forensic medical imaging.</p>
+              <p style={{marginTop:10}}>I build backend systems, cloud infrastructure, and ML-powered products with 4+ years of industry experience at <strong>Publicis Sapient</strong> and <strong>Honeywell</strong>. Currently doing research at ASU building BoneAtlas — a healthcare AI platform for forensic medical imaging.</p>
               <p style={{marginTop:10}}>I am actively looking for <strong>full-time opportunities</strong> starting May 2026 in <strong>Software Engineering, Full Stack, Backend, .NET, Cloud, ML Engineering, and Forward Deployed Engineering</strong> roles in the U.S.</p>
               <p style={{marginTop:10}}>You can reach me on <a href="https://www.linkedin.com/in/shreya-prakash2199/" target="_blank" rel="noreferrer" className="bio-link">LinkedIn</a> or <a href="mailto:shreya2199@gmail.com" className="bio-link">Email</a>.</p>
             </div>
           </div>
 
           <div className="stats-row">
-            {[["3+","Years industry exp."],["7","Projects built"],["2x","Hackathon winner"],["4.11","GPA @ ASU"]].map(([n,l]) => (
+            {[["4+","Years industry exp."],["7","Projects built"],["2x","Hackathon winner"],["4.11","GPA @ ASU"]].map(([n,l]) => (
               <div key={l} className="stat-card">
                 <div className="stat-n">{n}</div>
                 <div className="stat-l">{l}</div>
@@ -205,27 +205,34 @@ export default function App() {
         </section>
 
         <section id="projects" style={{paddingTop:48}}>
-          <div className="section-heading">Selected Projects</div>
-          <div className="section-sub">ML systems, cloud infrastructure, full-stack products, and award-winning hackathon work.</div>
-          <div className="proj-grid">
-            {PROJECTS.map(p => (
-              <div key={p.num} className={"card proj-card"+(p.feat?" feat":"")}>
-                <div className="proj-num">{p.num}</div>
-                <div className="proj-name">{p.name}</div>
-                <div className="proj-desc">{p.desc}</div>
-                <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",flexWrap:"wrap",gap:10}}>
-                  <div className="proj-stack">
-                    {p.stack.map(s => <span key={s} className={"tag"+(p.blue?" blue":"")}>{s}</span>)}
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",marginBottom:4}}>
+            <div className="section-heading">Projects</div>
+          </div>
+          <div className="section-sub">Things I've built.</div>
+          <div className="proj-grid-2">
+            {PROJECTS.map((p,i) => (
+              <div key={i} className="proj-card-2">
+                <div className="proj-preview" style={{background:`linear-gradient(135deg, ${p.color} 0%, #111 100%)`,borderBottom:`1px solid ${p.accent}22`}}>
+                  <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+                    <div style={{display:"flex",alignItems:"center",gap:8}}>
+                      <span style={{fontFamily:"monospace",fontSize:13,color:p.accent,fontWeight:600}}>&lt;/&gt;</span>
+                      <span style={{fontSize:14,fontWeight:600,color:"var(--txt)"}}>{p.name}</span>
+                    </div>
+                    <div style={{display:"flex",gap:6,alignItems:"center"}}>
+                      {p.badge && <span style={{fontSize:10,background:`${p.accent}22`,color:p.accent,border:`1px solid ${p.accent}44`,padding:"2px 7px",borderRadius:4,fontFamily:"'JetBrains Mono',monospace"}}>{p.badge}</span>}
+                      {p.github && <a href={p.github} target="_blank" rel="noreferrer" className="proj-icon-btn" onClick={e=>e.stopPropagation()}>
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                      </a>}
+                      {p.live && <a href={p.live} target="_blank" rel="noreferrer" className="proj-icon-btn" style={{color:"var(--teal)"}} onClick={e=>e.stopPropagation()}>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                      </a>}
+                    </div>
                   </div>
-                  <div style={{display:"flex",gap:8,flexShrink:0}}>
-                    {p.github && <a href={p.github} target="_blank" rel="noreferrer" className="proj-link" onClick={e => e.stopPropagation()}>
-                      <svg viewBox="0 0 24 24" fill="currentColor" style={{width:13,height:13}}><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                      GitHub
-                    </a>}
-                    {p.live && <a href={p.live} target="_blank" rel="noreferrer" className="proj-link proj-link-live" onClick={e => e.stopPropagation()}>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{width:13,height:13}}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                      Live
-                    </a>}
+                </div>
+                <div className="proj-body">
+                  <p className="proj-desc-2">{p.desc}</p>
+                  <div className="proj-tags-2">
+                    {p.stack.map(s => <span key={s} className="tag2" style={{"--ac":p.accent}}>{s}</span>)}
                   </div>
                 </div>
               </div>
@@ -252,7 +259,7 @@ export default function App() {
 
         <section id="experience" style={{paddingTop:48,paddingBottom:80}}>
           <div className="section-heading">Experience</div>
-          <div className="section-sub">3+ years across fintech, industrial IoT, and academic research.</div>
+          <div className="section-sub">4+ years across fintech, industrial IoT, and academic research.</div>
           <div className="exp-list">
             {EXP.map((e,i) => (
               <div key={i} className="card exp-card">
@@ -328,7 +335,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif}
 .pill{padding:6px 18px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);background:transparent;border:none;font-family:'Inter',sans-serif;transition:all .2s}
 .pill:hover{color:var(--txt)}
 .pill.on{background:#222;color:var(--txt);box-shadow:0 1px 3px rgba(0,0,0,.5)}
-.wrap{max-width:3000px;margin:0 auto;padding:88px 20px 0}
+.wrap{max-width:2000px;margin:0 auto;padding:88px 20px 0}
 .card{background:var(--card);border:1px solid var(--b);border-radius:12px;padding:24px}
 .divider{height:1px;background:var(--b);margin:20px 0}
 .profile-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
@@ -398,6 +405,18 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif}
 .proj-link:hover{color:var(--txt);border-color:#444}
 .proj-link-live{border-color:rgba(61,214,140,0.2);color:var(--teal)}
 .proj-link-live:hover{border-color:rgba(61,214,140,0.4);color:var(--teal)}
+.proj-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.proj-card-2{background:var(--card);border:1px solid var(--b);border-radius:12px;overflow:hidden;transition:all .2s;display:flex;flex-direction:column}
+.proj-card-2:hover{border-color:#333;transform:translateY(-2px)}
+.proj-preview{padding:16px 18px}
+.proj-body{padding:16px 18px;flex:1;display:flex;flex-direction:column;gap:10px}
+.proj-desc-2{font-size:13px;color:var(--muted);line-height:1.65;flex:1}
+.proj-tags-2{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.tag2{font-family:'JetBrains Mono',monospace;font-size:10px;padding:3px 9px;border-radius:5px;background:color-mix(in srgb,var(--ac) 10%,transparent);color:var(--ac,#f0a500);border:1px solid color-mix(in srgb,var(--ac) 25%,transparent);letter-spacing:.3px}
+.proj-icon-btn{width:26px;height:26px;border-radius:6px;border:1px solid var(--b2);background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:all .2s;flex-shrink:0}
+.proj-icon-btn:hover{color:var(--txt);border-color:#444}
+.proj-icon-btn svg{width:13px;height:13px}
+@media(max-width:700px){.proj-grid-2{grid-template-columns:1fr}}
 .footer{display:flex;align-items:center;justify-content:space-between;padding:24px 0 40px;font-size:12px;color:var(--dim);flex-wrap:wrap;gap:12px;border-top:1px solid var(--b);margin-top:8px}
 .footer-links{display:flex;gap:16px}
 .fl{font-size:12px;color:var(--dim);text-decoration:none;font-family:'JetBrains Mono',monospace;transition:color .2s}
