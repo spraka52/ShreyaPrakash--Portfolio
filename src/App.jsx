@@ -96,10 +96,71 @@ const EXP = [
   { type:"work", period:"Feb 2021 — July 2021", role:"Software Engineer Intern", company:"Honeywell Technology Solutions", points:["Built real-time notification system with C#/.NET and WebSockets for mobile and web clients.","Developed RESTful APIs and optimized SQL stored procedures, improving query performance by 70%."] },
 ];
 
-const TABS = ["home","projects","blog","experience","achievements"];
+const SHREYA_CONTEXT = `You are an AI assistant on Shreya Prakash's portfolio website. Answer questions about Shreya concisely and helpfully. Only answer questions about Shreya — if asked anything unrelated, politely redirect.
+
+ABOUT SHREYA:
+M.S. Computer Software Engineering @ Arizona State University, GPA 4.11/4.0, graduating May 2026. 4+ years of industry experience. Seeking full-time roles in Software Engineering, Full Stack, Backend, .NET, Cloud, ML Engineering, and Forward Deployed Engineering in the U.S. (requires visa sponsorship). Email: shreya2199@gmail.com | LinkedIn: linkedin.com/in/shreya-prakash2199 | GitHub: github.com/spraka52
+
+EXPERIENCE:
+1. Software Engineer (Research) — ASU (May 2025–Present): Building BoneAtlas healthcare AI platform (GraphQL, MongoDB, 3D visualization). Built Unity/C# VR data generation system for U.S. Army GIFT platform with Kafka. Reduced data processing latency by 40%.
+2. ASDE-2 — Publicis Sapient (Dec 2022–Aug 2024, Promoted): WPF desktop apps + WCF/gRPC for Point72 hedge fund. Optimized SQL Server proc from 180 min to 2 min (88%+ improvement). Azure Functions boosted backend responsiveness 40%. L2 on-call, Jenkins CI/CD, 100% SonarQube.
+3. ASDE-1 — Publicis Sapient (July 2021–Dec 2022): SSO frontend ReactJS with Azure AD OAuth 2.0 for 160,000+ enterprise users. Cloud-native pricing platform (Azure Functions, Azure MySQL). Sunbelt Rentals e-commerce features. Bangkok Bank .NET Core APIs.
+4. Software Engineer Intern — Honeywell (Feb 2021–July 2021): C#/.NET WebSockets notification system. Optimized SQL stored procedures by 70%.
+
+SKILLS: Java, Python, C#, Go, TypeScript, JavaScript, SQL | React, Next.js, Vue 3, Angular | Spring Boot, .NET Core, Node.js, FastAPI, GraphQL, Kafka, gRPC | PostgreSQL, SQL Server, MongoDB, DynamoDB, Redis | AWS, Azure, Docker, Kubernetes, Jenkins, GitHub Actions | PyTorch, TensorFlow, OpenCV, Scikit-learn, OpenAI API, LangChain
+
+PROJECTS: SafePrompt (DistilBERT toxicity classifier), Elastic Cloud Platform (AWS face recognition, 1000+ users), Portfolio Risk Analyzer (Spring Boot + Next.js, live), Waste Segregation (1st Place hackathon, 97% accuracy), VR Training Data Generator (U.S. Army GIFT), Metrics Orchestrator (24 engineers, 24 microservices), Mindful Journal (OpenAI + Ollama LLMs)
+
+ACHIEVEMENTS: 1st Place CellStart AI Hackathon, 1st Place Phaseshift ML Hackathon (National, India), IEEE Publication FDMCA (2021)
+
+Keep answers brief (2-4 sentences). Be friendly and professional.`;
+
+const TABS = ["home","projects","blog","experience","achievements","tldr"];
 
 export default function App() {
   const [active, setActive] = useState("home");
+  const [chatMessages, setChatMessages] = useState([]);
+  const [chatInput, setChatInput] = useState("");
+  const [chatLoading, setChatLoading] = useState(false);
+  const chatEndRef = React.useRef(null);
+
+  const SUGGESTIONS = [
+    "How many years of experience does Shreya have?",
+    "What tech stack does Shreya know?",
+    "How can I contact Shreya?",
+    "What databases does Shreya work with?",
+  ];
+
+  const sendMessage = async (text) => {
+    const msg = text || chatInput.trim();
+    if (!msg || chatLoading) return;
+    setChatInput("");
+    const updated = [...chatMessages, { role: "user", content: msg }];
+    setChatMessages(updated);
+    setChatLoading(true);
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: [
+            { role: "system", content: SHREYA_CONTEXT },
+            ...updated.map(m => ({ role: m.role, content: m.content })),
+          ],
+        }),
+      });
+      const data = await res.json();
+      const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't get a response.";
+      setChatMessages(prev => [...prev, { role: "assistant", content: reply }]);
+    } catch {
+      setChatMessages(prev => [...prev, { role: "assistant", content: "Something went wrong. Please try again." }]);
+    }
+    setChatLoading(false);
+  };
+
+  React.useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [chatMessages, chatLoading]);
 
   useEffect(() => {
     const s = document.createElement("style");
@@ -310,6 +371,59 @@ export default function App() {
           </div>
         </section>
 
+        <section id="tldr" style={{paddingTop:48,paddingBottom:80}}>
+          <div style={{textAlign:"center",marginBottom:28}}>
+            <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:36,fontWeight:700,color:"var(--txt)",letterSpacing:"-1px",marginBottom:8}}>tldr</div>
+            <div style={{fontSize:14,color:"var(--muted)"}}>Too Long; Didn't Read — quick chat to know more about my experience and skills</div>
+          </div>
+          <div className="card tldr-card">
+            <div style={{marginBottom:12}}>
+              <div style={{fontSize:15,fontWeight:600,color:"var(--txt)",marginBottom:2}}>Let's know Shreya?</div>
+              <div style={{fontSize:13,color:"var(--muted)"}}>Ask anything about Shreya.</div>
+            </div>
+            <div className="divider" style={{margin:"12px 0"}} />
+            <div className="chat-window">
+              {chatMessages.length === 0 && (
+                <div className="chat-empty">
+                  <div style={{fontSize:13,color:"var(--dim)",marginBottom:16,textAlign:"center"}}>Try asking one of these questions:</div>
+                  <div className="chat-suggestions">
+                    {SUGGESTIONS.map((s,i) => (
+                      <button key={i} className="suggestion-btn" onClick={() => sendMessage(s)}>{s}</button>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {chatMessages.map((m, i) => (
+                <div key={i} className={"chat-msg " + (m.role === "user" ? "chat-user" : "chat-ai")}>
+                  {m.role === "assistant" && <div className="chat-ai-label">Shreya's AI</div>}
+                  <div className="chat-bubble">{m.content}</div>
+                </div>
+              ))}
+              {chatLoading && (
+                <div className="chat-msg chat-ai">
+                  <div className="chat-ai-label">Shreya's AI</div>
+                  <div className="chat-bubble chat-typing"><span/><span/><span/></div>
+                </div>
+              )}
+              <div ref={chatEndRef} />
+            </div>
+            <div className="chat-input-row">
+              <input
+                className="chat-input"
+                placeholder="Ask a question..."
+                value={chatInput}
+                onChange={e => setChatInput(e.target.value)}
+                onKeyDown={e => e.key === "Enter" && sendMessage()}
+                disabled={chatLoading}
+              />
+              <button className="chat-send" onClick={() => sendMessage()} disabled={chatLoading || !chatInput.trim()}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </div>
+            <div style={{textAlign:"center",fontSize:11,color:"var(--dim)",marginTop:12}}>Fast responses based on Shreya's profile using Claude AI.</div>
+          </div>
+        </section>
+
         <footer className="footer">
           <span>Shreya Prakash · 2026</span>
           <div className="footer-links">
@@ -416,6 +530,34 @@ body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif}
 .proj-icon-btn:hover{color:var(--txt);border-color:#444}
 .proj-icon-btn svg{width:13px;height:13px}
 @media(max-width:700px){.proj-grid-2{grid-template-columns:1fr}}
+.tldr-card{display:flex;flex-direction:column;gap:0}
+.chat-window{min-height:340px;max-height:420px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;padding:8px 0 8px}
+.chat-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;min-height:280px}
+.chat-suggestions{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;width:100%;max-width:640px}
+.suggestion-btn{padding:10px 14px;border-radius:8px;border:1px solid var(--b2);background:#161616;color:var(--muted);font-size:13px;text-align:left;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;line-height:1.4}
+.suggestion-btn:hover{border-color:#444;color:var(--txt);background:#1a1a1a}
+.chat-msg{display:flex;flex-direction:column;gap:4px;max-width:80%}
+.chat-user{align-self:flex-end;align-items:flex-end}
+.chat-ai{align-self:flex-start;align-items:flex-start}
+.chat-ai-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--teal);letter-spacing:.5px;margin-bottom:2px}
+.chat-bubble{padding:10px 14px;border-radius:10px;font-size:13px;line-height:1.6;white-space:pre-wrap}
+.chat-user .chat-bubble{background:#1e1e1e;border:1px solid var(--b2);color:var(--txt);border-radius:10px 10px 2px 10px}
+.chat-ai .chat-bubble{background:#161616;border:1px solid var(--b2);color:var(--muted);border-radius:10px 10px 10px 2px}
+.chat-typing{display:flex;align-items:center;gap:4px;padding:12px 16px}
+.chat-typing span{width:6px;height:6px;border-radius:50%;background:var(--dim);animation:bounce .9s infinite}
+.chat-typing span:nth-child(2){animation-delay:.15s}
+.chat-typing span:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.chat-input-row{display:flex;gap:8px;margin-top:12px;align-items:center}
+.chat-input{flex:1;background:#161616;border:1px solid var(--b2);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--txt);font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+.chat-input:focus{border-color:#444}
+.chat-input::placeholder{color:var(--dim)}
+.chat-input:disabled{opacity:.5}
+.chat-send{width:40px;height:40px;border-radius:8px;border:1px solid var(--b2);background:#1a1a1a;color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0}
+.chat-send:hover:not(:disabled){color:var(--txt);border-color:#444;background:#222}
+.chat-send:disabled{opacity:.4;cursor:default}
+.chat-send svg{width:15px;height:15px}
+@media(max-width:600px){.chat-suggestions{grid-template-columns:1fr}.chat-msg{max-width:95%}}
 .footer{display:flex;align-items:center;justify-content:space-between;padding:24px 0 40px;font-size:12px;color:var(--dim);flex-wrap:wrap;gap:12px;border-top:1px solid var(--b);margin-top:8px}
 .footer-links{display:flex;gap:16px}
 .fl{font-size:12px;color:var(--dim);text-decoration:none;font-family:'JetBrains Mono',monospace;transition:color .2s}
