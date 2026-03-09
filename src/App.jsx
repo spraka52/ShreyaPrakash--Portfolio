@@ -194,7 +194,7 @@ export default function App() {
         <div className="nav-pills">
           {TABS.map(id => (
             <button key={id} className={"pill"+(active===id?" on":"")} onClick={() => go(id)}>
-              {id.charAt(0).toUpperCase()+id.slice(1)}
+              {id === "tldr" ? "tldr? Ask AI" : id.charAt(0).toUpperCase()+id.slice(1)}
             </button>
           ))}
         </div>
@@ -380,8 +380,8 @@ export default function App() {
 
         <section id="tldr" style={{paddingTop:48,paddingBottom:80}}>
           <div style={{textAlign:"center",marginBottom:28}}>
-            <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:36,fontWeight:700,color:"var(--txt)",letterSpacing:"-1px",marginBottom:8}}>tldr</div>
-            <div style={{fontSize:14,color:"var(--muted)"}}>Too Long; Didn't Read — quick chat to know more about my experience and skills</div>
+            <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:36,fontWeight:700,color:"var(--txt)",letterSpacing:"-1px",marginBottom:8}}>tldr? Ask AI</div>
+            <div style={{fontSize:14,color:"var(--muted)"}}>Too Long; Didn't Read — ask the AI anything about my experience and skills</div>
           </div>
           <div className="card tldr-card">
             <div style={{marginBottom:12}}>
