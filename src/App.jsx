@@ -286,7 +286,7 @@ export default function App() {
 
           <div className="card" style={{marginTop:16}}>
             <div className="card-label"><span className="dot" />GitHub Contributions · spraka52</div>
-            <img src="https://github-readme-activity-graph.vercel.app/graph?username=spraka52&bg_color=0d1117&color=40c463&line=40c463&point=40c463&area=true&hide_border=true" alt="GitHub contributions" className="gh-img" />
+            <img src={`https://ghchart.rshah.org/40c463/spraka52?v=${new Date().toISOString().split('T')[0]}`} alt="GitHub contributions" className="gh-img" />
           </div>
 
           <div style={{marginTop:32}}>
