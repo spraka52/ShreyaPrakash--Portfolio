@@ -191,7 +191,7 @@ export default function App() {
   };
 
   React.useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }, [chatMessages, chatLoading]);
 
   useEffect(() => {
